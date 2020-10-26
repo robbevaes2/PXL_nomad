@@ -77,7 +77,7 @@ Het script ```install.sh``` zorgt ervoor dat er eventuele Linux updates gedaan w
 
 Wanneer deze geinstalleerd zijn wordt per Virtuele Machine een apart script gerunt. Deze zorgt ervoor dat de server/client geconfigureerd wordt.
 
-**Server Script***
+**Server Script**
 ```
 $! /bin/bash
 
@@ -145,9 +145,17 @@ Dit is de hoofdpagina van consul op de server
 Dit is de pagina van de consul instances
 ![Image of instances](https://github.com/robbevaes2/PXL_nomad/blob/groep2/Screenshots/consulinstances.PNG)
 
+Bronvermelding
+- Slides van uit de les
+- https://learn.hashicorp.com/collections/consul/getting-started
+- https://learn.hashicorp.com/collections/nomad/get-started
+- https://www.vagrantup.com/docs/provisioning/shell
+- https://learn.hashicorp.com/tutorials/nomad/get-started-cluster?in=nomad/get-started
+- https://www.nomadproject.io/docs/configuration/consul
+- https://www.vagrantup.com/docs/multi-machine
 
-
-
+Taakverdeling
+	Bij deze opdracht hebben we ten allen tijde samengewerkt.
 
 
 
