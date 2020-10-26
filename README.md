@@ -124,8 +124,26 @@ De volgende regel zorgt ervoor dat de client weet naar welke server hij moet lui
 We stellen ook het bind address in voor nomad. Als dit de eerste keer niet lukt blijft hij dit proberen tot dit wel lukt.
 Ook worden weer nomad en cosul geenabeld en gestart.
 
+Dit is de hoofdpagina van nomad op de server
+![Image of nomad homepage](https://github.com/robbevaes2/PXL_nomad/blob/groep2/Screenshots/Nomadhomepage.PNG)
 
+Dit is de client pagina van nomad op de server
+![Image of client page](https://github.com/robbevaes2/PXL_nomad/blob/groep2/Screenshots/nomadclients.PNG)
 
+Dit is de server pagina van nomad op de server
+![Image of server page](https://github.com/robbevaes2/PXL_nomad/blob/groep2/Screenshots/nomadservers.PNG)
+
+Dit is de jobs pagina van nomad op de server
+![Image of jobs page](https://github.com/robbevaes2/PXL_nomad/blob/groep2/Screenshots/nomadjobs.PNG)
+
+Dit is een example van een job op de server
+![Image of a job](https://github.com/robbevaes2/PXL_nomad/blob/groep2/Screenshots/nomadjobexample.PNG)
+
+Dit is de hoofdpagina van consul op de server
+![Image of consul homepage](https://github.com/robbevaes2/PXL_nomad/blob/groep2/Screenshots/consulhomeapge.PNG)
+
+Dit is de pagina van de consul instances
+![Image of instances](https://github.com/robbevaes2/PXL_nomad/blob/groep2/Screenshots/consulinstances.PNG)
 
 
 
