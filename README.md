@@ -154,8 +154,8 @@ Bronvermelding
 - https://www.nomadproject.io/docs/configuration/consul
 - https://www.vagrantup.com/docs/multi-machine
 
-Taakverdeling
-	Bij deze opdracht hebben we ten allen tijde samengewerkt.
+Taakverdeling:
+Bij deze opdracht hebben we ten allen tijde samengewerkt.
 
 
 
