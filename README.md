@@ -5,7 +5,7 @@ Met het volgende commando worden er 1 server en 2 client Virtuele machines opges
 ```
 $ vagrant up
 ```
-Aan de hand van volgende vagrant file worden deze Virtuele machines opgezet: 
+Aan de hand van volgende vagrant file worden deze virtuele machines opgezet: 
 
 ```
 # -*- mode: ruby -*-
@@ -109,7 +109,7 @@ De volgende rollen worden per Virtuele Machine geinstaleerd:
    - role: software/docker
 ```
 
-We maken gebruik van variabelen op groepnsiveau en op default niveau. De variabelen op groepsniveau hebben voorang op die van default.
+We maken gebruik van variabelen op groepnsiveau en op default niveau. De variabelen op groepsniveau hebben voorang op die van default. Deze variabelen gebruiken we vervolgens om de Consul.hcl en de Nomad.hcl aan te passen.
 
 Groups/Clients:
 ```
@@ -348,5 +348,7 @@ Docker/Task:
     state: present
   notify: restart docker
 ```
-
+## Taakverdeling
+Robbe was verantwoordelijk voor het Consul gedeelte, en Huub voor het Nomad gedeelte. We hebben uiteindelijk alles samen gemaakt/nagekeken zodat we ook beide weten hoe het werkt.
+De README is geschreven door Huub en nagekeken door Robbe.
 
