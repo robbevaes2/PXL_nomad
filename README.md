@@ -109,10 +109,9 @@ De volgende rollen worden per Virtuele Machine geinstaleerd:
    - role: software/docker
 ```
 
-We maken gebruik van variabelen op groepniveau en op default niveau. De variabelen op groepniveau hebben voorang op die van default.
+We maken gebruik van variabelen op groepnsiveau en op default niveau. De variabelen op groepsniveau hebben voorang op die van default.
 
-Groups:
-	Clients:
+Groups/Clients:
 ```
 ---
 consul__retry_join: "retry_join = [\"192.168.1.2\"]"
@@ -124,8 +123,7 @@ nomad__serverip: "[\"192.168.1.2:4647\"]"
 nomad__bind_address: "{{ansible_eth1.ipv4.address}}"
 ```
 
-Groups:
-	Servers:
+Groups/Servers:
 ```
 nomad__datadir: "/opt/nomad/server"
 nomad__bind_address: "{{ansible_eth1.ipv4.address}}"
@@ -133,8 +131,7 @@ nomad__serverenabledisable: "true"
 consul__bind_address: "bind_addr = \"{{ansible_eth1.ipv4.address}}\""
 ```
 
-Consul:
-	Defaults:
+Consul/Defaults:
 ```
 ---
 consul__bind_address: ""
@@ -143,8 +140,7 @@ consul__serverstatus: "server = true"
 consul__bootstrapstatus: "bootstrap_expect=1"
 ```
 
-Consul:
-	Template:
+Consul/Template:
 ```
 # Full configuration options can be found at https://www.consul.io/docs/agent/options.html
 
@@ -229,8 +225,7 @@ ui = true
 {{consul__bind_address}}
 ```
 
-Nomad:
-	Default:
+Nomad/Default:
 ```
 ---
 nomad__bind_address: ""
@@ -239,8 +234,7 @@ nomad__serverip: "[\"127.0.0.1:4646\"]"
 nomad__serverenabledisable: "false"
 ```
 
-Nomad:
-	Template:
+Nomad/Template:
 ```
 # Full configuration options can be found at https://www.nomadproject.io/docs/configuration
 
@@ -261,8 +255,7 @@ client {
 
 Volgende handlers en tasks worden uitgevoerd voor Consul, Nomad en Docker.
 
-Consul:
-	Handler:
+Consul/Handler:
 ```
 ---
 - name: restart consul
@@ -271,8 +264,7 @@ Consul:
     state: restarted
 ```
 
-Consul:
-	Task:
+Consul/Task:
 ```
 ---  
 - name: setup repo
@@ -310,8 +302,7 @@ Nomad:
     mode: '0755'
 ```
 
-Nomad:
-	Task:
+Nomad/Task:
 ```
 ---
 - name: setup repo
@@ -334,8 +325,7 @@ Nomad:
   notify: restart nomad
 ```
 
-Docker:
-	Handler:
+Docker/Handler:
 ```
 ---
 - name: restart docker
@@ -344,8 +334,7 @@ Docker:
     state: restarted
 ```
 
-Docker:
-	Task:
+Docker/Task:
 ```
 ---
 - name: add docker-ce repository
