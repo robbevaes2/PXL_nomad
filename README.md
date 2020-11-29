@@ -1,7 +1,7 @@
-<h1> Groep 2 - Linux PE2 Documentatie <h1>
-<h2> Installatie en Configruatie <h2>
+# Groep 2 - Linux PE2 Documentatie 
+## Installatie en Configruatie 
 
-Met het volgende commando worden er 1 server en 2 client Virtuele machine's opgestart
+Met het volgende commando worden er 1 server en 2 client Virtuele machines opgestart
 ```
 $ vagrant up
 ```
@@ -286,8 +286,7 @@ Consul/Task:
   notify: restart consul
 ```
 
-Nomad:
-	Handler:
+Nomad/Handler:
 ```
 ---
 - name: restart nomad
