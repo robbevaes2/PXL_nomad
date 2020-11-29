@@ -1,0 +1,10 @@
+---
+version: 5
+hierarchy:
+  - name: "Per-node data"
+    path: "nodes/%{::facts.hostname}.yaml"
+  - name: common
+    path: common.yaml
+defaults:
+  datadir: /tmp/vagrant-puppet/data/
+  data_hash: yaml_data

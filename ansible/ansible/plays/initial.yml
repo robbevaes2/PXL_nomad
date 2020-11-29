@@ -1,0 +1,19 @@
+---
+- name: playbook for server vm
+  hosts: servers
+  become: yes
+
+  roles:
+   - role: software/nomad
+   - role: software/consul
+   - role: software/docker
+
+- name: playbook for clients
+  hosts: clients
+  become: yes
+  
+  roles:
+   - role: software/nomad
+   - role: software/consul
+   - role: software/docker
+  

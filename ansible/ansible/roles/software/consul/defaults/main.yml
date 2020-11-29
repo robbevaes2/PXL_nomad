@@ -1,0 +1,5 @@
+---
+consul__bind_address: ""
+consul__retry_join: "#retry_join"
+consul__serverstatus: "server = true"
+consul__bootstrapstatus: "bootstrap_expect=1"

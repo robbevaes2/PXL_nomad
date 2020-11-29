@@ -1,0 +1,21 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+VAGRANTFILE_API_VERSION = "2"
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.box = "centos/7"
+  config.vm.hostname = "puppet"
+
+  config.vm.provision "shell", path: "scripts/install-puppet.sh"
+
+  config.vm.synced_folder 'hieradata', '/tmp/vagrant-puppet/data', type: "rsync"
+
+  config.vm.provision "puppet" do |puppet|
+    puppet.manifests_path = "manifests"
+    puppet.module_path = "modules"
+    puppet.manifest_file = ""
+    puppet.options = "--verbose --debug"
+    puppet.hiera_config_path = "hieradata/hiera.yaml"
+    puppet.working_directory = "/tmp/vagrant-puppet"
+  end
+
+end

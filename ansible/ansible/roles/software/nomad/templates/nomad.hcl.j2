@@ -1,0 +1,15 @@
+# Full configuration options can be found at https://www.nomadproject.io/docs/configuration
+
+data_dir = "{{nomad__datadir}}"
+log_level = "DEBUG"
+bind_addr = "{{nomad__bind_address}}"
+
+server {
+  enabled = {{nomad__serverenabledisable}}
+  bootstrap_expect = 1
+}
+
+client {
+  enabled = true  
+  servers = {{nomad__serverip}}
+}

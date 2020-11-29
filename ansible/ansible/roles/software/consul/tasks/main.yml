@@ -1,0 +1,23 @@
+---
+# - name: upgrade all packages
+#   yum:
+#    name: '*'
+#    state: latest
+    
+- name: setup repo
+  yum_repository:
+    name: consul
+    description: add consul repo
+    baseurl: https://rpm.releases.hashicorp.com/RHEL/$releasever/$basearch/stable
+    gpgkey: https://rpm.releases.hashicorp.com/gpg
+    
+- name: install consul
+  yum:
+    name: consul
+    state: present
+
+- name: change consul hcl
+  template:
+    src: consul.hcl.j2
+    dest: /etc/consul.d/consul.hcl
+  notify: restart consul

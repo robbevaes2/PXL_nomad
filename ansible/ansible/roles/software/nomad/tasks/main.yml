@@ -1,0 +1,24 @@
+---
+# - name: upgrade all packages
+  # yum:
+    # name: '*'
+    # state: latest
+    
+- name: setup repo
+  yum_repository:
+    name: nomad
+    description: add nomad repo
+    baseurl: https://rpm.releases.hashicorp.com/RHEL/$releasever/$basearch/stable
+    gpgkey: https://rpm.releases.hashicorp.com/gpg
+    
+- name: install nomad
+  yum:
+    name: nomad
+    state: present
+  notify: Create nomad datadir
+
+- name: replace hcl file nomad
+  template:
+    src: nomad.hcl.j2
+    dest: /etc/nomad.d/nomad.hcl
+  notify: restart nomad
