@@ -5,7 +5,9 @@ Met het volgende commando worden er 1 server en 2 client Virtuele machine's opge
 ```
 $ vagrant up
 ```
+Aan de hand van volgende vagrant file worden deze Virtuele machines opgezet: 
 
+```
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 VAGRANTFILE_API_VERSION = "2"
