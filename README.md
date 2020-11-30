@@ -79,6 +79,7 @@ In de Vagrantfile gebeurd het volgende:
 
 - Aan elke virtuele machine wordt een hostname toegekend.
 - Aan elke machine wordt een statisch ip toegekend.
+- Voor de server vm wordt er ook geport forward.
 - De interface van Nomad wordt opgestart.
 - De interface van Consul wordt opgestart.
 - De VM wordt aan een groep toegekend.
@@ -109,7 +110,7 @@ De volgende rollen worden per Virtuele Machine geinstaleerd:
    - role: software/docker
 ```
 
-We maken gebruik van variabelen op groepnsiveau en op default niveau. De variabelen op groepsniveau hebben voorang op die van default. Deze variabelen gebruiken we vervolgens om de Consul.hcl en de Nomad.hcl aan te passen.
+We maken gebruik van variabelen op groepnsiveau en op default niveau. De variabelen op groepsniveau hebben voorrang op die van default. Deze variabelen gebruiken we vervolgens om de consul.hcl en de nomad.hcl aan te passen.
 
 Groups/Clients:
 ```
