@@ -1,0 +1,31 @@
+job "{{job_name}}" {
+    datacenters = ["dc1"] 
+    type = "service"
+
+    group "{{job_name}}" {
+        count = 1
+        network {
+            port "{{job_name}}_port" {
+            to = {{job_port}}
+            static = {{job_port}}
+            }
+        }
+      task "{{job_name}}" {
+        driver = "docker"
+        config {
+            image = "{{job_image}}"
+            ports = ["{{job_name}}_port"]
+            logging {
+                type = "journald"
+                config {
+                    tag = "{{job_name}}"
+                }
+            }
+        }
+        service {
+            name = "{{job_name}}"
+            tags = ["metrics"]
+        }
+      }
+    }
+}

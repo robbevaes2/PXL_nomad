@@ -1,0 +1,14 @@
+---
+- name: Start prometheus job
+  shell: nomad job run -address=http://{{nomad__bind_address}}:4646 /opt/nomad/prometheus.hcl || exit 0
+
+- name: Start grafana job
+  shell: nomad job run -address=http://{{nomad__bind_address}}:4646 /opt/nomad/grafana.hcl || exit 0
+
+- name: Start alertmanager job
+  shell: nomad job run -address=http://{{nomad__bind_address}}:4646 /opt/nomad/alertmanager.hcl || exit 0
+
+- name: Start extra_job job
+  shell: nomad job run -address=http://{{nomad__bind_address}}:4646 /opt/nomad/extra_job.hcl || exit 0
+
+    

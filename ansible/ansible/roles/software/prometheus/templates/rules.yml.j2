@@ -1,0 +1,20 @@
+groups:
+  - name: Prometheus rules for target missing
+    rules:
+      - alert: PrometheusTargetMissing
+        expr: up == 0
+        for: 0m
+        labels:
+          severity: critical
+        annotations:
+          summary: Prometheus target missing 
+          description: A Prometheus target has disappeared. An exporter might be crashed.
+  - name: prometheus alerts for job down
+    rules:
+      - alert: job down
+        expr: absent(up{job="extra_job"})
+        for: 10s
+        labels:
+          severity: critical
+        annotations:
+          description: "Our extra job is down."

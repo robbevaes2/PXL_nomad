@@ -1,0 +1,5 @@
+---
+nomad__bind_address: ""
+nomad__datadir: ""
+nomad__serverip: "[\"127.0.0.1:4646\"]"
+nomad__serverenabledisable: "false"

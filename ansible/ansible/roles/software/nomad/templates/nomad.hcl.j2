@@ -1,0 +1,26 @@
+# Full configuration options can be found at https://www.nomadproject.io/docs/configuration
+
+data_dir = "{{nomad__datadir}}"
+log_level = "DEBUG"
+bind_addr = "{{nomad__bind_address}}"
+
+server {
+  enabled = {{nomad__serverenabledisable}}
+  bootstrap_expect = 1
+}
+
+client {
+  network_interface = "eth1"
+  enabled = true  
+  servers = {{nomad__serverip}}
+  options {
+    "docker.volumes.enabled" = "true"
+  }
+}
+telemetry {
+  collection_interval = "1s"
+  disable_hostname = true
+  prometheus_metrics = true
+  publish_allocation_metrics = true
+  publish_node_metrics = true
+}

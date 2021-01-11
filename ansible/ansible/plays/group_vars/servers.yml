@@ -1,0 +1,4 @@
+nomad__datadir: "/opt/nomad/server"
+nomad__bind_address: "{{ansible_eth1.ipv4.address}}"
+nomad__serverenabledisable: "true"
+consul__bind_address: "bind_addr = \"{{ansible_eth1.ipv4.address}}\""

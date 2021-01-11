@@ -1,0 +1,8 @@
+---
+consul__retry_join: "retry_join = [\"192.168.1.2\"]"
+consul__serverstatus: "#server = false"
+consul__bootstrapstatus: "#bootstrap_expect=1"
+consul__bind_address: "bind_addr = \"{{ansible_eth1.ipv4.address}}\""
+nomad__datadir: "/opt/nomad/client"
+nomad__serverip: "[\"192.168.1.2:4647\"]"
+nomad__bind_address: "{{ansible_eth1.ipv4.address}}"

@@ -1,0 +1,12 @@
+---
+- name: restart nomad
+  service:
+    name: nomad
+    state: restarted
+
+- name: Create nomad datadir
+  file:
+    path: "{{nomad__datadir}}"
+    state: directory
+    mode: '0755'
+    

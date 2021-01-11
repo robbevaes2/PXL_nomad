@@ -1,0 +1,38 @@
+job "extra-job" {
+  datacenters = ["dc1"]
+
+  group "extra-job" {
+    task "server" {
+      driver = "docker"
+      config {
+        image = "hashicorp/demo-prometheus-instrumentation:latest"
+      }
+
+      resources {
+        cpu = 500
+        memory = 256
+        network {
+          mbits = 10
+          port  "http"{}
+        }
+      }
+
+      service {
+        name = "extra-job"
+        port = "http"
+
+        tags = [
+          "testweb",
+          "urlprefix-/extra_job strip=/extra-job",
+        ]
+
+        check {
+          type     = "http"
+          path     = "/"
+          interval = "2s"
+          timeout  = "2s"
+        }
+      }
+    }
+  }
+}

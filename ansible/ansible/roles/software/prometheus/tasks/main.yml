@@ -1,0 +1,64 @@
+---
+- name: Create a directory for the prometheus yml file
+  file:
+    path: /opt/prometheus
+    state: directory
+    mode: '0755'
+
+- name: create a directory for the alertmanager rules file
+  file:
+    path: /opt/alertmanager
+    state: directory
+    mode: '0755'
+
+- name: Move alertmanager infrastructure rules template
+  template:
+    src: infrastructure.rules.j2
+    dest: /opt/alertmanager/infrastructure.rules
+  
+- name: Move the prometheus.yml file over to the correct dest
+  template: 
+    src: prometheus.yml.j2
+    dest: /opt/prometheus/prometheus.yml
+
+- name: Use the prometheus template to create the job file
+  template: 
+    src: prometheus.hcl.j2
+    dest: /opt/nomad/prometheus.hcl
+  vars:
+    job_name: prometheus
+    job_image: prom/prometheus:latest
+    job_port: 9090
+  notify: Start prometheus job
+
+- name: Use the grafana template to create the job file
+  template: 
+    src: jobs.hcl.j2
+    dest: /opt/nomad/grafana.hcl
+  vars:
+    job_name: grafana
+    job_image: grafana/grafana:latest
+    job_port: 3000
+  notify: Start grafana job
+
+- name: Use the alertmanager template to create the job file
+  template: 
+    src: jobs.hcl.j2
+    dest: /opt/nomad/alertmanager.hcl
+  vars:
+    job_name: alertmanager
+    job_image: prom/alertmanager:latest
+    job_port: 9093
+  notify: Start alertmanager job
+
+- name: Use the extra_job template to create the job file
+  template: 
+    src: extra_job.hcl.j2
+    dest: /opt/nomad/extra_job.hcl
+  notify: Start extra_job job
+
+- name: Use the extra_job template with the rules
+  template:
+    src: rules.yml.j2
+    dest: /opt/prometheus/rules.yml
+  notify: Start extra_job job
