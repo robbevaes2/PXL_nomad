@@ -1,4 +1,4 @@
-# Groep 2 - Linux PE2 Documentatie 
+# Groep 2 - Linux PE3 Documentatie 
 
 Met het volgende commando worden er 1 server en 2 client Virtuele machines opgestart
 ```
@@ -153,14 +153,10 @@ node_exporter (tasks/main.yaml)
   template: 
     src: node_exporter.service.j2
     dest: /etc/systemd/system/node_exporter.service
-
-- name: Start node_exporter
-  service:
-    name: node_exporter
-    state: started
+  notify: Started Node_exporter
 ```
 
-Voor de node_exporter hebben we volgende tempalte gebruikt.
+Voor de node_exporter hebben we volgende template gebruikt.
 node_exporter (templates/node_exporter.service)
 ```
 [Unit]
